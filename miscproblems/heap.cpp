@@ -22,22 +22,25 @@ class Heap
 
         //Assume current is min
         int minIndex = i;
-    if(left<v.size() && compare(v[left],v[i]){
-            swap(v[left], v[minIndex])
-    }
-    if(right<v.size() && compare(v[right],v[minindex]){
+        if (left < v.size() && compare(v[left], v[i]))
+        {
+            swap(v[left], v[minIndex]);
+        }
+        if (right < v.size() && compare(v[right], v[minIndex]))
+        {
             minIndex = right;
-    }
-       if(minIndex!=1){
+        }
+        if (minIndex != 1)
+        {
             swap(v[i], v[minIndex]);
             heapify(minIndex);
-       }
+        }
     }
 
 public:
     Heap(bool type = true)
     {
-        minheap = type;
+        minHeap = type;
         v.push_back(-1);
     }
 
@@ -55,6 +58,10 @@ public:
             parent = parent / 2;
         }
     }
+    bool empty()
+    {
+        return v.size() == 1;
+    }
     int top()
     {
         return v[1];
@@ -69,16 +76,17 @@ public:
 };
 int main()
 {
-    Heap h;
+    Heap h(true);
     h.push(5);
     h.push(15);
     h.push(2);
     h.push(20);
     h.push(3);
     // cout << h.top() << endl;
-    while (!h.empty() {
+    while (!h.empty())
+    {
         cout << h.top() << endl;
         h.pop();
-    })
-        return 0;
+    }
+    return 0;
 }
